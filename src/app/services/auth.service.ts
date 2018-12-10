@@ -11,7 +11,7 @@ export class AuthService {
 
   //Used to clear anything that needs to be cleared.
   private clear(): void {
-    localStorage.clear();
+    localStorage.removeItem('token');
   }
 
    /** 
