@@ -6,6 +6,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuardService } from '../guards/auth-guard.service';
+import { RoleGuardService } from '../guards/role-guard.service';
 
 const dashboardRoutes: Routes = [
   {
@@ -15,7 +16,7 @@ const dashboardRoutes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'admin', component: AdminComponent }
+      { path: 'admin', component: AdminComponent , canActivate: [RoleGuardService], data: { role: 'Admin'}}
     ]
   }
 ];
@@ -26,7 +27,6 @@ const dashboardRoutes: Routes = [
     CommonModule,
     RouterModule.forChild(dashboardRoutes)
   ],
-  exports: [RouterModule],
-  providers: [AuthGuardService]
+  exports: [RouterModule]
 })
 export class DashboardRoutingModule { }
