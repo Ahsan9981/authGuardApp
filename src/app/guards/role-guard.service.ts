@@ -17,8 +17,6 @@ export class RoleGuardService implements CanActivate {
 
   const user = this.authService.decode();
 
-  debugger;
-
   if(user.role === next.data.role) {
       return true;
   }
