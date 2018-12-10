@@ -14,7 +14,7 @@ const dashboardRoutes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'admin', component: AdminComponent}
+      { path: 'admin', component: AdminComponent }
     ]
   }
 ];
